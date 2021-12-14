@@ -1,0 +1,27 @@
+
+<form [formGroup]="form" (ngSubmit)="submit()">  
+<div class="form-group">  
+    <label for="website">Select city:</label>  
+    <select formControlName="city" class="form-control">  
+        <option disabled>Select city</option>          
+        <option *ngFor="let cityName of cities" [value]="cityName">
+            {{cityName}}
+        </option>
+    </select>  
+</div>  
+ 
+<br>
+<button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+</form>
+
+
+<h1>{{cityName}}</h1>
+<p>{{cityDescription}}</p>
+<p> Temperature is {{cityTemp}}</p>
+
+
+<pre>
+    {{cityData|json}}
+    </pre>
+
+<!-- <app-city-forecast [cityName]></app-city-forecast> -->

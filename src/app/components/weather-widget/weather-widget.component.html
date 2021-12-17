@@ -1,8 +1,11 @@
 
+
+ <div class="row">
+
 <form [formGroup]="form" (ngSubmit)="submit()">  
 <div class="form-group">  
     <label for="website">Select city:</label>  
-    <select formControlName="city" class="form-control">  
+    <select formControlName="city" class="form-control dropdown">  
         <option disabled>Select city</option>          
         <option *ngFor="let cityName of cities" [value]="cityName">
             {{cityName}}
@@ -14,14 +17,23 @@
 <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
 </form>
 
-
-<h1>{{cityName}}</h1>
-<p>{{cityDescription}}</p>
-<p> Temperature is {{cityTemp}}</p>
+</div>
 
 
-<pre>
-    {{cityData|json}}
-    </pre>
+<!-- <pre>
+    {{cityForecast|json}}
+    </pre> -->
 
-<!-- <app-city-forecast [cityName]></app-city-forecast> -->
+    <p>&nbsp;</p>
+    <h1>{{cityName}}</h1>
+
+
+
+
+    <div class="row">
+<div class="d-flex">
+<app-city-forecast [cityName]="cityName" *ngFor="let forecastItem of cityForecast" [forecast]="forecastItem"></app-city-forecast>
+</div>
+</div>
+
+

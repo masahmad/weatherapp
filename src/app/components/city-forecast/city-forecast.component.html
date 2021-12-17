@@ -1,1 +1,22 @@
-<p>city-forecast works!</p>
+
+
+
+
+<div class="card w-130" >
+    <div class="card-body">
+        <h5 class="card-title">{{forecast.dt_txt | date :'EEEE'}} </h5>
+        {{forecast.weather[0].description}}
+        <br>
+      <img src='http://openweathermap.org/img/wn/{{forecast.weather[0].icon}}@2x.png' />
+
+<p class="card-text">temp:{{forecast.main.temp}} </p>
+<p class="card-text">Wind speed:  {{forecast.wind.speed}} </p>
+    </div>
+  </div>
+
+
+
+
+
+
+

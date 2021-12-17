@@ -12,8 +12,7 @@ export class WeatherWidgetComponent implements OnInit {
   cities: string[] = ["Birmingham", "London", "Cardiff"];
   cityData: any
   cityName: string = ""
-  cityDescription: string = ""
-  cityTemp: string = ""
+  cityForecast: any[] = []
 
   constructor(
     private apiService: ApiService,
@@ -37,9 +36,8 @@ export class WeatherWidgetComponent implements OnInit {
     console.log(this.form.value.city);  
     return this.apiService.getWeather(this.form.value.city).subscribe((data: {}) => {
       this.cityData = data;
-      this.cityName = this.cityData.name
-      this.cityDescription = this.cityData.weather[0].description
-      this.cityTemp = this.cityData.main.temp
+      this.cityName = this.cityData.city.name
+      this.cityForecast = this.cityData.list
       console.log(this.cityData)
     })
   }  

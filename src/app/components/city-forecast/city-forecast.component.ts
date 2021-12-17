@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-city-forecast',
@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./city-forecast.component.css']
 })
 export class CityForecastComponent implements OnInit {
+@Input() cityName = ""
+@Input() forecast:any= {}
+
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+ ngOnChanges() {
+
+  
+ } 
+
 }
+
+
